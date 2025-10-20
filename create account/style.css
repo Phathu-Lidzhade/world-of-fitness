@@ -1,0 +1,200 @@
+/* style.css — Light fitness-friendly layout (banner enlarged) */
+
+:root {
+  --bg-light: #dbdbdb;
+  --panel: #f2f2f2;
+  --muted: #555;
+  --accent: #c11325;     /* red accent */
+  --accent-2: #ff7a18;   /* orange accent */
+  --border: #ddd;
+  --input-bg: #fff;
+  --input-border: #ccc;
+  --card-radius: 12px;
+  --font-head: 'Oswald', Arial, sans-serif;
+  --font-body: 'Open Sans', Arial, sans-serif;
+}
+
+/* Reset */
+* { box-sizing: border-box; }
+
+/* Body - single consistent rule (background + top margin to clear fixed banner) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: #222;
+  background: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: 100px; /* increased to match larger banner */
+}
+
+/* Container */
+.page-wrap {
+  width: 100%;
+  padding: 30px 10px;
+}
+
+.form-card {
+  background: var(--panel);
+  max-width: 850px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Left form section */
+.form-left {
+  padding: 30px;
+}
+
+.lead {
+  font-family: var(--font-head);
+  font-size: 22px;
+  color: var(--accent);
+  margin: 0 0 6px 0;
+}
+.sublead {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Form grid */
+form.signup-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+form.signup-form .full {
+  grid-column: 1 / -1;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 90%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 5px rgba(255,122,24,0.3);
+  outline: none;
+}
+
+label {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: block;
+  color: #333;
+}
+
+/* Error messages */
+.error {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+/* Button */
+button[type="submit"] {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  padding: 12px 0;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* Footer text */
+.form-footer {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+.form-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Right panel */
+.form-right {
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+.right-hero {
+  font-family: var(--font-head);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.small {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Header Banner */
+/* Banner styles - larger, left-aligned text, spans full width */
+.banner {
+  background-color: #000;
+  color: white;
+  text-align: left;             /* left aligned text */
+  padding: 24px 32px;           /* larger height and comfortable horizontal padding */
+  width: 100%;
+  position: fixed;              /* stays at the top even when scrolling */
+  top: 0;
+  left: 0;
+  z-index: 1000;                /* ensures it’s on top of other elements */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.banner h1 {
+  font-size: 28px;              /* larger font for bigger banner */
+  margin: 0;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.banner span {
+  color: var(--accent);         /* red for “Fitness” */
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .form-card {
+    grid-template-columns: 1fr;
+  }
+  .form-right {
+    display: none;
+  }
+  /* smaller top offset on narrow screens */
+  body { margin-top: 86px; }
+}
