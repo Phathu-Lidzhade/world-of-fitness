@@ -1,0 +1,118 @@
+/* admin/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-red: #d10000;
+  --dark-red: #a00000;
+  --black: #000000;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --border-gray: #e0e0e0;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #f8fafc;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* World of Fitness Banner - BLACK BACKGROUND WITH RED FITNESS */
+.world-fitness-banner {
+  background: #000000 !important;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 4px solid #d10000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.world-fitness-banner h1 {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.world-text {
+  color: #ffffff;
+}
+
+.fitness-text {
+  color: #d10000 !important;
+  text-shadow: 0 0 10px rgba(209, 0, 0, 0.5);
+}
+
+/* Admin Container */
+.admin-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  min-height: calc(100vh - 120px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .world-fitness-banner h1 {
+    font-size: 2rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .admin-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .table-container {
+    padding: 10px;
+  }
+  
+  .data-table {
+    font-size: 12px;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 8px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-wrap {
+    padding: 15px 10px;
+  }
+  
+  .stat-card {
+    padding: 15px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}
